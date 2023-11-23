@@ -10,7 +10,14 @@ import sys
 import subprocess
 
 # Log file path
-log_file_path = "build_log.txt"
+log_file_path = "CI_log.txt"
+
+def log_message(message):
+    timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+    log_line = f"[{timestamp}] {message}\n"
+
+    with open(log_file_path, "a") as log_file:
+        log_file.write(log_line)
 
 def RunBatchFile():
 	print("||################################## Build Project ##################################|| \n")
@@ -20,6 +27,8 @@ def RunBatchFile():
 		print("Build Result: \n" + result.stdout.decode("ascii"))
 	except subprocess.CalledProcessError as e:
 		print("VS Build Error: \n", e.stdout.decode("ascii"))
+	
+	log_message(result.stdout.decode("ascii") )
 
 
 def RunGitCommand():
@@ -30,6 +39,7 @@ def RunGitCommand():
 		print("Git status Result: " + result.stdout.decode("ascii") )
 	except subprocess.CalledProcessError as e:
 		print("Git Command Error: \n", e.stderr.decode("ascii"))
+	log_message(result.stdout.decode("ascii"))
 		
 	pullCommand = ['git', 'pull']
 	try:
@@ -41,6 +51,7 @@ def RunGitCommand():
 		print("Git Pull Result: " + result.stdout.decode("ascii"))
 	except subprocess.CalledProcessError as e:
 		print("Git Command Error: \n", e.stderr.decode("ascii"))
+	log_message(result.stdout.decode("ascii") )
 
 def RunUnitTest():
 	print("||################################## Unit Test ##################################|| \n")
@@ -50,21 +61,22 @@ def RunUnitTest():
 		print("Unit Test Start Fail")
 	else:
 		print("UnitTest Start Success: \n" + result.stdout.decode("ascii"))
+	log_message(result.stdout.decode("ascii") )
 	
 
 def PollForChanges():
-	print(time.ctime())
+	print("CI Start: " + time.ctime())
 	RunBatchFile()
 	RunGitCommand()
 	RunUnitTest()
 
 def RunForever():
-	WAIT_TIME_SECONDS = 5
+	print("Wait For the Next Pull")
+	WAIT_TIME_SECONDS = 60
 	ticker = threading.Event()
 	while not ticker.wait(WAIT_TIME_SECONDS):
 		PollForChanges()
 
-PollForChanges()
-# # RunForever()
-
-input("Press Enter to exit...")
+#PollForChanges()
+#input("Press Enter to exit...")
+RunForever()
