@@ -9,18 +9,15 @@ msbuild OilTycoonOceanOdyssey/playbuffer/OilTyrant.sln -m -t:Build -p:Configurat
 if %ERRORLEVEL% neq 0 call :BUILDFAIL
 endlocal
 echo "==BUILD OK=="
-pause
 exit 0
 
 :BUILDFAIL
 echo "==BUILD FAIL=="
 endlocal
-pause
 exit 1
 
 :BADENV
 echo "VS2022INSTALLDIR was not found in environment variables"
 echo This is typically set to something like "C:\Program Files\Microsoft Visual Studio\2022\Professional"
 endlocal
-pause
 exit 2

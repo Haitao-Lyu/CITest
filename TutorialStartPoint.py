@@ -71,11 +71,19 @@ def PollForChanges():
 	RunUnitTest()
 
 def RunForever():
-	print("Wait For the Next Pull")
-	WAIT_TIME_SECONDS = 60
-	ticker = threading.Event()
-	while not ticker.wait(WAIT_TIME_SECONDS):
+	WAIT_TIME_SECONDS = 10
+	#ticker = threading.Event()
+	#while not ticker.wait(WAIT_TIME_SECONDS):
+	#	PollForChanges()
+	#	print("Wait For the Next Pull")
+		
+	while True:
+		print("Wait For the Next Pull")
+		for remaining_seconds in range(WAIT_TIME_SECONDS, 0, -1):
+			print(f"Countdown: {remaining_seconds} seconds", end='\r')
+			time.sleep(1)
 		PollForChanges()
+
 
 #PollForChanges()
 #input("Press Enter to exit...")

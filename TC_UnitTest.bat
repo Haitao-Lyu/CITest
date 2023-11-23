@@ -9,7 +9,6 @@ echo [42m
 echo " BUILD OK "
 echo [0m
 endlocal
-pause
 exit 0
 
 :UNITFAIL
@@ -17,7 +16,6 @@ echo [41m
 echo "!!UNIT TEST FAILED!! (%1 %2)"
 echo [0m
 endlocal
-pause
 exit 1
 
 :RUNUNITTESTS
