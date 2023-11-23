@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OilTyrant", "HelloWorld\HelloWorld.vcxproj", "{7BE91A0A-4D52-43EF-893F-7094624C95C6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{7BE91A0A-4D52-43EF-893F-7094624C95C6}.Release|x64.Build.0 = Release|x64
 		{7BE91A0A-4D52-43EF-893F-7094624C95C6}.Release|x86.ActiveCfg = Release|Win32
 		{7BE91A0A-4D52-43EF-893F-7094624C95C6}.Release|x86.Build.0 = Release|Win32
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Debug|x64.ActiveCfg = Debug|x64
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Debug|x64.Build.0 = Debug|x64
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Debug|x86.ActiveCfg = Debug|Win32
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Debug|x86.Build.0 = Debug|Win32
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Release|x64.ActiveCfg = Release|x64
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Release|x64.Build.0 = Release|x64
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Release|x86.ActiveCfg = Release|Win32
+		{EE21BDBB-5FC4-4A5D-B3B5-A2724E7ED44E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
